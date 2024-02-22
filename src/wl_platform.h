@@ -415,6 +415,8 @@ typedef struct _GLFWwindowWayland
     } fallback;
 
     uint32_t                    pointerAxisTime;
+    double                      askedCursorPosX, askedCursorPosY;
+    GLFWbool                    didAskForSetCursorPos;
 } _GLFWwindowWayland;
 
 // Wayland-specific global data
