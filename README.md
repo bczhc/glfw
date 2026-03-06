@@ -1,5 +1,42 @@
 # GLFW
 
+GLFW with several patches, to be used with Minecraft under X11 & Wayland.
+
+Patches:
+
+- [glfw-wayland-minecraft-cursorfix](https://aur.archlinux.org/cgit/aur.git/tree/?h=glfw-wayland-minecraft-cursorfix)
+  - 0001-Key-Modifiers-Fix.patch
+  - 0002-Fix-duplicate-pointer-scroll-events.patch
+  - 0003-Implement-glfwSetCursorPosWayland.patch
+  - 0004-Fix-Window-size-on-unset-fullscreen.patch
+  - 0006-Avoid-error-on-startup.patch
+  - 0007-Fix-fullscreen-location.patch
+  - 0008-Fix-forge-crash.patch
+- [clear-code/glfw/tree/im-support](https://github.com/clear-code/glfw/tree/im-support), with top-most commit c0d34f363415 ("WIN32: Better support for IME")
+- [glfw/glfw#1972](https://github.com/glfw/glfw/pull/1972)
+- https://github.com/glfw/glfw/pull/2130#issuecomment-4003750413
+
+## Building
+
+```shell
+mkdir build
+cd build
+cmake .. -G Ninja -DBUILD_SHARED_LIBS=ON -DCMAKE_BUILD_TYPE=Debug
+ninja
+```
+
+## Using in Minecraft
+
+In the Minecraft launcher, add such following JVM parameter.
+
+```
+-Dorg.lwjgl.glfw.libname=/path/to/glfw/project/src/libglfw.so.3
+```
+
+Then, launch the game. Done.
+
+# Upstream README
+
 [![Build status](https://github.com/glfw/glfw/actions/workflows/build.yml/badge.svg)](https://github.com/glfw/glfw/actions)
 [![Build status](https://ci.appveyor.com/api/projects/status/0kf0ct9831i5l6sp/branch/master?svg=true)](https://ci.appveyor.com/project/elmindreda/glfw)
 
