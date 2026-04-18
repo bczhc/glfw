@@ -296,6 +296,17 @@ void _glfwSplitBPP(int bpp, int* red, int* green, int* blue)
         *red = *red + 1;
 }
 
+void colored_debug(const char *format, ...) {
+    printf("\033[1;36m");
+
+    va_list args;
+    va_start(args, format);
+    vprintf(format, args);
+    va_end(args);
+
+    printf("\033[0m\n");
+}
+
 
 //////////////////////////////////////////////////////////////////////////
 //////                        GLFW public API                       //////
