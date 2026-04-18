@@ -1071,3 +1071,5 @@ void* _glfw_realloc(void* pointer, size_t size);
 void _glfw_free(void* pointer);
 
 void colored_debug(const char *format, ...);
+
+extern bool g_use_charmods_callback;

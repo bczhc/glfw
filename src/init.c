@@ -70,6 +70,8 @@ static _GLFWinitconfig _glfwInitHints =
     },
 };
 
+bool g_use_charmods_callback = false;
+
 // The allocation function used when no custom allocator is set
 //
 static void* defaultAllocate(size_t size, void* user)
@@ -415,6 +417,11 @@ GLFWAPI int glfwInit(void)
 
     colored_debug("glfwInit called");
     glfwInitHint(GLFW_PLATFORM, GLFW_PLATFORM_WAYLAND);
+
+    const char *use_charmods_callback_env = getenv("GLFW_WL_TEXT_INPUT_USE_CHARMODS_CALLBACK");
+    if (use_charmods_callback_env && !strcmp(use_charmods_callback_env, "1")) {
+        g_use_charmods_callback = true;
+    }
 
     memset(&_glfw, 0, sizeof(_glfw));
     _glfw.hints.init = _glfwInitHints;

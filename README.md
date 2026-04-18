@@ -35,6 +35,17 @@ In the Minecraft launcher, add such following JVM parameter.
 
 Then, launch the game. Done.
 
+## IME Input
+
+This fix (https://github.com/glfw/glfw/pull/2130#issuecomment-4003750413) is only
+for Minecraft versions < 26.1. For Minecraft versions >= 26.1, this patch is not
+required anymore.
+
+So I later added a branching just for this - for Minecraft < 26.1, please run
+with env `GLFW_WL_TEXT_INPUT_USE_CHARMODS_CALLBACK=1`.
+
+See: https://github.com/glfw/glfw/pull/2130#issuecomment-4272713578
+
 # Upstream README
 
 [![Build status](https://github.com/glfw/glfw/actions/workflows/build.yml/badge.svg)](https://github.com/glfw/glfw/actions)
