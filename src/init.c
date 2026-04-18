@@ -413,6 +413,9 @@ GLFWAPI int glfwInit(void)
     if (_glfw.initialized)
         return GLFW_TRUE;
 
+    colored_debug("glfwInit called");
+    glfwInitHint(GLFW_PLATFORM, GLFW_PLATFORM_WAYLAND);
+
     memset(&_glfw, 0, sizeof(_glfw));
     _glfw.hints.init = _glfwInitHints;
 
