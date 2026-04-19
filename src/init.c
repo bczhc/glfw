@@ -416,7 +416,13 @@ GLFWAPI int glfwInit(void)
         return GLFW_TRUE;
 
     colored_debug("glfwInit called");
-    glfwInitHint(GLFW_PLATFORM, GLFW_PLATFORM_WAYLAND);
+    const char* platform_hint_env = getenv("GLFW_PLATFORM_HINT");
+    if (platform_hint_env) {
+        if (!strcmp(platform_hint_env, "wayland"))
+            glfwInitHint(GLFW_PLATFORM, GLFW_PLATFORM_WAYLAND);
+        if (!strcmp(platform_hint_env, "x11"))
+            glfwInitHint(GLFW_PLATFORM, GLFW_PLATFORM_X11);
+    }
 
     const char *use_charmods_callback_env = getenv("GLFW_WL_TEXT_INPUT_USE_CHARMODS_CALLBACK");
     if (use_charmods_callback_env && !strcmp(use_charmods_callback_env, "1")) {
