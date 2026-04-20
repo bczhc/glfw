@@ -3662,10 +3662,12 @@ const char* _glfwGetClipboardStringWayland(void)
 void _glfwUpdatePreeditCursorRectangleWayland(_GLFWwindow* window)
 {
     _GLFWpreedit* preedit = &window->preedit;
-    int x = preedit->cursorPosX;
-    int y = preedit->cursorPosY;
-    int w = preedit->cursorWidth;
-    int h = preedit->cursorHeight;
+
+    double factor = g_wl_text_input_set_cursor_rectangle_extra_scaling;
+    int x = (int) ((double) preedit->cursorPosX / factor);
+    int y = (int) ((double) preedit->cursorPosY / factor);
+    int w = (int) ((double) preedit->cursorWidth / factor);
+    int h = (int) ((double) preedit->cursorHeight / factor);
 
     if (window->wl.textInputV3)
     {

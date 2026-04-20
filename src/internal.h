@@ -1073,3 +1073,4 @@ void _glfw_free(void* pointer);
 void colored_debug(const char *format, ...);
 
 extern bool g_use_charmods_callback;
+extern double g_wl_text_input_set_cursor_rectangle_extra_scaling;

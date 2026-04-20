@@ -71,6 +71,7 @@ static _GLFWinitconfig _glfwInitHints =
 };
 
 bool g_use_charmods_callback = false;
+double g_wl_text_input_set_cursor_rectangle_extra_scaling = 1.0;
 
 // The allocation function used when no custom allocator is set
 //
@@ -427,6 +428,12 @@ GLFWAPI int glfwInit(void)
     const char *use_charmods_callback_env = getenv("GLFW_WL_TEXT_INPUT_USE_CHARMODS_CALLBACK");
     if (use_charmods_callback_env && !strcmp(use_charmods_callback_env, "1")) {
         g_use_charmods_callback = true;
+    }
+
+    {
+        const char *env = getenv("GLFW_WL_TEXT_INPUT_SET_CURSOR_RECTANGLE_EXTRA_SCALING");
+        char *_end;
+        if (env) g_wl_text_input_set_cursor_rectangle_extra_scaling = strtod(env, &_end);
     }
 
     memset(&_glfw, 0, sizeof(_glfw));
