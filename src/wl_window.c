@@ -2307,6 +2307,9 @@ static void textInputV3Done(void* data,
     _GLFWwindow* window = (_GLFWwindow*) data;
     _glfwUpdatePreeditCursorRectangleWayland(window);
     _glfwInputPreedit(window);
+
+    window->preedit.cursorWidth = 12;
+    window->preedit.textCount = 0;
 }
 
 static const struct zwp_text_input_v3_listener textInputV3Listener =
