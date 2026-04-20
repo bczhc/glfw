@@ -35,16 +35,24 @@ In the Minecraft launcher, add such following JVM parameter.
 
 Then, launch the game. Done.
 
-## IME Input
+## Extra Tweaks via Env
 
-This fix (https://github.com/glfw/glfw/pull/2130#issuecomment-4003750413) is only
-for Minecraft versions < 26.1. For Minecraft versions >= 26.1, this patch is not
-required anymore.
+- `GLFW_PLATFORM_HINT`
+  
+  Set to `x11` or `wayland`.
 
-So I later added a branching just for this - for Minecraft < 26.1, please run
-with env `GLFW_WL_TEXT_INPUT_USE_CHARMODS_CALLBACK=1`.
+- `GLFW_WL_TEXT_INPUT_USE_CHARMODS_CALLBACK`
 
-See: https://github.com/glfw/glfw/pull/2130#issuecomment-4272713578
+  This fix (https://github.com/glfw/glfw/pull/2130#issuecomment-4003750413) is only
+  for Minecraft versions < 26.1. For Minecraft versions >= 26.1, this patch is not
+  required anymore.
+
+  So I later added a branching just for this - for Minecraft < 26.1, please run
+  with env `GLFW_WL_TEXT_INPUT_USE_CHARMODS_CALLBACK=1`.
+
+  See: https://github.com/glfw/glfw/pull/2130#issuecomment-4272713578
+
+- `GLFW_WL_TEXT_INPUT_SET_CURSOR_RECTANGLE_EXTRA_SCALING`
 
 # Upstream README
 
