@@ -1,5 +1,15 @@
 # GLFW
 
+## 20260718 update:
+
+Outdated. Minecraft 26.3 has a better support for IME and fixed multiple existing bugs. These patches below are _all_ unneeded anymore!
+
+See: https://forum.archlinuxcn.org/t/topic/16898/3 (in Chinese)
+
+---
+
+---
+
 GLFW with several patches, to be used with Minecraft under X11 & Wayland.
 
 Patches:
